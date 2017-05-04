@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
 class: center, middle
 
 # CH7 - Databases and AWS
@@ -227,7 +248,8 @@ class: center, middle
   - No need to define the table schema past the PK
   - Apps can connect to DynamoDB via web service API (json format) or SDK
 
---
+---
+# Amazon DynamoDB
 
   - Scalar Data types:
     - String - Unicode UTF8 encoded text up to 400KB
@@ -247,12 +269,12 @@ class: center, middle
 
 # Primary key
 
-  > When a table is created, you must specify the primary key in addition to the table name. This will serve as the unique identifier of any item. 2 types of PK are supported:
+  - When a table is created, you must specify the primary key in addition to the table name. This will serve as the unique identifier of any item. 2 types of PK are supported:
 
   - Partition key - The unique id will be made by one attribute, a hash key.
   - Partition and sort key - The pk will be formed by a unique combination of the partition and sort/range key
 
-  > Each pk attribute must be defined as string, number, or binary. Best practice is to define primary keys that will make sure that the read and write operations will be divided accross several partitions.
+  - Each pk attribute must be defined as string, number, or binary. Best practice is to define primary keys that will make sure that the read and write operations will be divided accross several partitions.
 ---
 class: center, middle
 # Data reads can be eventually consistent or strongly consistent
@@ -277,3 +299,14 @@ class: center, middle
 # DynamoDB Streams
 
   > Feature that allows you to keep track of recent changes by accessing a list of item modifications for the last 24-h period. Streams can be enabled via the console, cli, or SDK 
+
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
